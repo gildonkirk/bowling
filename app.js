@@ -1,5 +1,12 @@
-function load() {
-  console.log('working');
-};
+function emptyInput() {
+  $(document).on('click','.scoreInput', function() {
+    if($('.scoreInput').val() === 'Enter Scores') {
+      $(this).val('');
+    }
+  });
+}
+emptyInput();
 
-load();
+$(document).on('click', '.scoreSubmit', function() {
+  console.log($('.scoreInput').val());
+});
