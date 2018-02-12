@@ -1,3 +1,4 @@
+const scores = [];
 function emptyInput() {
   $(document).on('click','.scoreInput', function() {
     if($('.scoreInput').val() === 'Enter Scores') {
@@ -8,5 +9,9 @@ function emptyInput() {
 emptyInput();
 
 $(document).on('click', '.scoreSubmit', function() {
-  console.log($('.scoreInput').val());
+  const textInput = $('.scoreInput').val();
+  for(i = 0; i < textInput.length; i++) {
+    scores.push(textInput[i]);
+  };
+  console.log(scores);
 });
