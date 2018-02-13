@@ -6,7 +6,6 @@ emptyInput();
 $(document).on('click', '.scoreSubmit', function() {
   scores = [];
   scoresByFrame = [];
-  // inputToArray();
   parseValues();
   addFrames();
 });
@@ -21,25 +20,14 @@ function parseValues() {
       scores.push(textInput[i]);
     }
   }
-  console.log(scores);
 };
 
 function addFrames() {
   for(i = 0; i < scores.length; i++) {
     if(scores[i] === '-') {
-      if(scores[i-1] === '/') {
-        frameScore = 10 + scores[i+1];
-        scoresByFrame.push(frameScore);
-      } else if(scores[i-1] === 'X'){
-        frameScore = 10 + (scores[i+1] + scores[i+2]);
-        scoresByFrame.push(frameScore);
-      } else {
-        frameScore = (scores[i-1] + scores[i-2]);
-        scoresByFrame.push(frameScore);
-      };
+      checkForSparesAndStrikes();
     } else if (i + 1 === scores.length) {
-      frameScore = scores[i] + scores[i-1];
-      scoresByFrame.push(frameScore);
+      lastFrame();
     }
     // else if (scores[i] === '/')
   }
@@ -53,6 +41,23 @@ function addFrames() {
 //   };
 //   console.log(scores);
 // }
+function checkForSparesAndStrikes() {
+  if(scores[i-1] === '/') {
+    frameScore = 10 + scores[i+1];
+    scoresByFrame.push(frameScore);
+  } else if(scores[i-1] === 'X'){
+    frameScore = 10 + (scores[i+1] + scores[i+2]);
+    scoresByFrame.push(frameScore);
+  } else {
+    frameScore = (scores[i-1] + scores[i-2]);
+    scoresByFrame.push(frameScore);
+  };
+};
+
+function lastFrame() {
+  frameScore = scores[i] + scores[i-1];
+  scoresByFrame.push(frameScore);
+};
 
 function emptyInput() {
   $(document).on('click','.scoreInput', function() {
@@ -60,4 +65,4 @@ function emptyInput() {
       $(this).val('');
     }
   });
-}
+};
