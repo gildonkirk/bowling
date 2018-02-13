@@ -1,12 +1,13 @@
 let scores = [];
-const scoresInt = [];
+let scoresByFrame = [];
 emptyInput();
 
 $(document).on('click', '.scoreSubmit', function() {
   scores = [];
+  scoresByFrame = [];
   // inputToArray();
   parseValues();
-
+  addFrames();
 });
 
 function parseValues() {
@@ -19,8 +20,21 @@ function parseValues() {
       scores.push(textInput[i]);
     }
   }
-  console.log(scores);
 };
+
+function addFrames() {
+  for(i = 0; i < scores.length; i++) {
+    let frameScore = 0;
+    if(scores[i] === '-') {
+      frameScore = (scores[i-1] + scores[i-2]);
+      scoresByFrame.push(frameScore);
+    } else if (i + 1 === scores.length) {
+      frameScore = scores[i] + scores[i-1];
+      scoresByFrame.push(frameScore);
+    }
+  }
+  console.log(scoresByFrame);
+}
 
 // function inputToArray() {
 //   const textInput = $('.scoreInput').val();
