@@ -13,14 +13,14 @@ $(document).on('click', '.scoreSubmit', function() {
 function addFrames() {
   for(i = 0; i < scores.length; i++) {
     if(scores[i] === '-') {
-      checkForSparesAndStrikes();
+      scoring();
     };
     lastFrame();
   }
   console.log(scoresByFrame);
 }
 
-function checkForSparesAndStrikes() {
+function scoring() {
   if(scores[i-1] === '/') {
     frameScore = 10 + scores[i+1];
     scoresByFrame.push(frameScore);
