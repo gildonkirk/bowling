@@ -1,5 +1,6 @@
 let scores = [];
 let scoresByFrame = [];
+let frameScore = 0;
 emptyInput();
 
 $(document).on('click', '.scoreSubmit', function() {
@@ -20,18 +21,27 @@ function parseValues() {
       scores.push(textInput[i]);
     }
   }
+  console.log(scores);
 };
 
 function addFrames() {
   for(i = 0; i < scores.length; i++) {
-    let frameScore = 0;
     if(scores[i] === '-') {
-      frameScore = (scores[i-1] + scores[i-2]);
-      scoresByFrame.push(frameScore);
+      if(scores[i-1] === '/') {
+        frameScore = 10 + scores[i+1];
+        scoresByFrame.push(frameScore);
+      } else if(scores[i-1] === 'X'){
+        frameScore = 10 + (scores[i+1] + scores[i+2]);
+        scoresByFrame.push(frameScore);
+      } else {
+        frameScore = (scores[i-1] + scores[i-2]);
+        scoresByFrame.push(frameScore);
+      };
     } else if (i + 1 === scores.length) {
       frameScore = scores[i] + scores[i-1];
       scoresByFrame.push(frameScore);
     }
+    // else if (scores[i] === '/')
   }
   console.log(scoresByFrame);
 }
