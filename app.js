@@ -42,6 +42,8 @@ function scoring() {
         frameScore = 30;
       } else if(scores[i] === scores[scores.length-3] && scores[i+2] !== 'X' && scores[i+2] !== '-') {
         frameScore = 20 + scores[i+2];
+      } else if(scores[i] === scores[scores.length-3] && scores[i+2] === 'X' && scores[i+2] !== '-') {
+        frameScore = 30;
       } else {
         frameScore = 10 + 10 + scores[i+3];
       }
@@ -53,12 +55,8 @@ function scoring() {
 };
 
 function lastFrame() {
-  if (scores[i] !== 'X' && scores[i] === 'X') {
-    return;
-  } else {
-    frameScore = scores[i] + scores[i-1];
-    scoresByFrame.push(frameScore);
-  }
+  frameScore = scores[i] + scores[i-1];
+  scoresByFrame.push(frameScore);
 };
 
 function extraFrameDelete() {
