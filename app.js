@@ -16,9 +16,11 @@ function addFrames() {
     if(scores[i] === '-') {
       scoring();
     };
-    lastFrame();
+    if(i + 1 === scores.length) {
+      lastFrame();
+    }
   }
-  lastFrameStrike();
+  extraFrameDelete();
   console.log(scoresByFrame);
 }
 
@@ -35,16 +37,16 @@ function scoring() {
   } else if(scores[i-1] === 'X' && scores[i+1] != 'X'){
     frameScore = 10 + (scores[i+1] + scores[i+2]);
     scoresByFrame.push(frameScore);
-  } else if(scores[i-1] === 'X' && scores[i+1] != 'X'){
-    frameScore = 10 + (scores[i+1] + scores[i+2]);
-    scoresByFrame.push(frameScore);
   } else if(scores[i-1] === 'X' && scores[i+1] === 'X'){
-    if(scores[i+3] === 'X' || scores[i+2] === 'X'){
-      frameScore = 30;
-    } else {
-      frameScore = 10 + 10 + scores[i+3];
-    }
-    scoresByFrame.push(frameScore);
+      if(scores[i] === scores[scores.length-3]) {
+        console.log('weird score');
+      };
+      if(scores[i+3] === 'X'){
+        frameScore = 30;
+      } else {
+        frameScore = 10 + 10 + scores[i+3];
+      }
+      scoresByFrame.push(frameScore);
   } else {
     frameScore = (scores[i-1] + scores[i-2]);
     scoresByFrame.push(frameScore);
@@ -52,14 +54,16 @@ function scoring() {
 };
 
 function lastFrame() {
-  if(i + 1 === scores.length) {
+  if (scores[i] !== 'X' && scores[i] === 'X') {
+    return;
+  } else {
     frameScore = scores[i] + scores[i-1];
     scoresByFrame.push(frameScore);
   }
 };
 
-function lastFrameStrike() {
-  if(scoresByFrame[scoresByFrame.length - 1] === 'XX') {
+function extraFrameDelete() {
+  if(scoresByFrame.length > 10) {
     scoresByFrame.pop();
   }
 }
