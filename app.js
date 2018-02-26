@@ -8,6 +8,7 @@ $(document).on('click', '.scoreSubmit', function() {
   scoresByFrame = [];
   parseValues();
   addFrames();
+  console.log(scores);
 });
 
 function addFrames() {
@@ -17,15 +18,32 @@ function addFrames() {
     };
     lastFrame();
   }
+  lastFrameStrike();
   console.log(scoresByFrame);
 }
 
 function scoring() {
-  if(scores[i-1] === '/') {
+  if(scores[i-1] === '/' && scores[i+1] != 'X') {
     frameScore = 10 + scores[i+1];
     scoresByFrame.push(frameScore);
-  } else if(scores[i-1] === 'X'){
+  } else if(scores[i-1] === '/' && scores[i+1] === 'X'){
+    frameScore = 10 + 10;
+    scoresByFrame.push(frameScore);
+  } else if(scores[i-1] === 'X' && scores[i+2] === '/'){
+    frameScore = 10 + 10;
+    scoresByFrame.push(frameScore);
+  } else if(scores[i-1] === 'X' && scores[i+1] != 'X'){
     frameScore = 10 + (scores[i+1] + scores[i+2]);
+    scoresByFrame.push(frameScore);
+  } else if(scores[i-1] === 'X' && scores[i+1] != 'X'){
+    frameScore = 10 + (scores[i+1] + scores[i+2]);
+    scoresByFrame.push(frameScore);
+  } else if(scores[i-1] === 'X' && scores[i+1] === 'X'){
+    if(scores[i+3] === 'X' || scores[i+2] === 'X'){
+      frameScore = 30;
+    } else {
+      frameScore = 10 + 10 + scores[i+3];
+    }
     scoresByFrame.push(frameScore);
   } else {
     frameScore = (scores[i-1] + scores[i-2]);
@@ -39,6 +57,12 @@ function lastFrame() {
     scoresByFrame.push(frameScore);
   }
 };
+
+function lastFrameStrike() {
+  if(scoresByFrame[scoresByFrame.length - 1] === 'XX') {
+    scoresByFrame.pop();
+  }
+}
 
 function parseValues() {
   const textInput = $('.scoreInput').val();
