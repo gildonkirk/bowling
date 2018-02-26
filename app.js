@@ -38,11 +38,10 @@ function scoring() {
     frameScore = 10 + (scores[i+1] + scores[i+2]);
     scoresByFrame.push(frameScore);
   } else if(scores[i-1] === 'X' && scores[i+1] === 'X'){
-      if(scores[i] === scores[scores.length-3]) {
-        console.log('weird score');
-      };
       if(scores[i+3] === 'X'){
         frameScore = 30;
+      } else if(scores[i] === scores[scores.length-3] && scores[i+2] !== 'X' && scores[i+2] !== '-') {
+        frameScore = 20 + scores[i+2];
       } else {
         frameScore = 10 + 10 + scores[i+3];
       }
