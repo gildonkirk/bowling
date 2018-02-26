@@ -1,6 +1,7 @@
 let scores = [];
 let scoresByFrame = [];
 let frameScore = 0;
+let fullScore = 0;
 emptyInput();
 
 $(document).on('click', '.scoreSubmit', function() {
@@ -8,7 +9,8 @@ $(document).on('click', '.scoreSubmit', function() {
   scoresByFrame = [];
   parseValues();
   addFrames();
-  console.log(scoresByFrame.reduce(calculateScore));
+  let fullScore = scoresByFrame.reduce(calculateScore);
+  $('.score').text(`Score: ${fullScore}`);
 });
 
 function addFrames() {
