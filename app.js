@@ -8,7 +8,7 @@ $(document).on('click', '.scoreSubmit', function() {
   scoresByFrame = [];
   parseValues();
   addFrames();
-  console.log(scores);
+  console.log(scoresByFrame.reduce(calculateScore));
 });
 
 function addFrames() {
@@ -76,6 +76,10 @@ function parseValues() {
     }
   }
 };
+
+function calculateScore(total, x) {
+  return total + x;
+}
 
 function emptyInput() {
   $(document).on('click','.scoreInput', function() {
