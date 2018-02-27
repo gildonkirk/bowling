@@ -1,3 +1,22 @@
+* {
+  box-sizing: border-box;
+}
+.container {
+  padding: 0 5%;
+}
+.inputSection {
+  margin-left: 5%;
+}
 .title {
-  color: red;
+  text-align: center;
+  margin-bottom: .5em;
+}
+.scoreInput {
+  text-align: center;
+  margin-right: 10px;
+}
+.score {
+  text-align: center;
+  line-height: 1;
+  margin-top: .25em;
 }

@@ -2,13 +2,18 @@
 <html>
   <head>
     <title>Bowling Game</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css">
   </head>
   <body>
     <h1 class="title">Bowling Game</h1>
-    <input class="scoreInput" type="text" name="scores" value="Enter Scores">
-    <button class="scoreSubmit" type="button" name="button">Submit</button>
-    <h3 class="score">Score: 0</h3>
+    <div class="container">
+      <div class="inputSection row">
+        <input class="scoreInput col-9" type="text" name="scores" value="Enter Scores">
+        <button class="scoreSubmit col-2" type="button" name="button">Submit</button>
+      </div>
+      <h3 class="score">Score: 0</h3>
+    </div>
   </body>
   <script
   src="http://code.jquery.com/jquery-3.3.1.min.js"
