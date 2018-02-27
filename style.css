@@ -14,11 +14,15 @@
 }
 .scoreInput {
   font-family: 'Montserrat', sans-serif;
-  font-size: 20pt;
+  font-size: 15pt;
   text-align: center;
   border-radius: 25px;
   border: 1px solid black;
   margin-right: 10px;
+  line-height: 2;
+}
+.scoreInput:focus {
+  outline: none;
 }
 .score {
   font-family: 'Abril Fatface', cursive;
