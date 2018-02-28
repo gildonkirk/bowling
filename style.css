@@ -11,15 +11,17 @@
   font-family: 'Pacifico', cursive;
   margin: .3em 0 .5em .8em;
   font-size: 28pt;
+  color: #40B2FF;
 }
 .scoreInput {
   font-family: 'Montserrat', sans-serif;
   font-size: 15pt;
   text-align: center;
   border-radius: 25px;
-  border: 1px solid black;
+  border: 1px solid #00FF58;
   margin-right: 10px;
   line-height: 2;
+  color: #00CC47;
 }
 .scoreInput:focus {
   outline: none;
@@ -28,16 +30,19 @@
   font-family: 'Abril Fatface', cursive;
   line-height: 1;
   margin: .25em 0 0 1.3em;
+  color: #A319E8;
 }
 .scoreSubmit {
   border-radius: 30px;
-  border: 1px solid #111111;
-  background-color: #ffffff;
+  background-color: #FF2777;
+  color: #ffffff;
+  border: 1px solid #FF2777;
 }
 .scoreSubmit:focus {
   outline: none;
 }
 .scoreSubmit:hover {
-  background-color: #111111;
+  background-color: #DE1E5B;
   color: #ffffff;
+  border: 1px solid #DE1E5B;
 }
