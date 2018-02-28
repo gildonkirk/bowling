@@ -1,16 +1,25 @@
 * {
   box-sizing: border-box;
 }
+body {
+  background-image: url('./assets/wood_pattern.png');
+}
 .container {
-  padding: 0 5%;
+  padding: 75px 0 60px 0;
+  border-radius: 60px;
+}
+.transparency {
+  padding: 75px 0 60px 0;
+  background-color: #ffffff;
+  border-radius: 60px;
 }
 .inputSection {
   margin-left: 5%;
 }
 .title {
   font-family: 'Pacifico', cursive;
-  margin: .3em 0 .5em .8em;
-  font-size: 28pt;
+  margin: 0.6em 0 0.7em 126px;
+  font-size: 36pt;
   color: #40B2FF;
 }
 .scoreInput {
@@ -19,7 +28,7 @@
   text-align: center;
   border-radius: 25px;
   border: 1px solid #00FF58;
-  margin-right: 10px;
+  margin: 0 10px;
   line-height: 2;
   color: #00CC47;
 }
@@ -29,7 +38,7 @@
 .score {
   font-family: 'Abril Fatface', cursive;
   line-height: 1;
-  margin: .25em 0 0 1.3em;
+  margin: .25em 0 0 80px;
   color: #A319E8;
 }
 .scoreSubmit {
