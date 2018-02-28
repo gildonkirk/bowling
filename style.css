@@ -6,11 +6,7 @@ body {
 }
 .container {
   padding: 75px 0 60px 0;
-  border-radius: 60px;
-}
-.transparency {
-  padding: 75px 0 60px 0;
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, .9);
   border-radius: 60px;
 }
 .inputSection {
@@ -20,7 +16,7 @@ body {
   font-family: 'Pacifico', cursive;
   margin: 0.6em 0 0.7em 126px;
   font-size: 36pt;
-  color: #40B2FF;
+  color: #1995E8;
 }
 .scoreInput {
   font-family: 'Montserrat', sans-serif;
