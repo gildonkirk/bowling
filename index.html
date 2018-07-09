@@ -8,12 +8,18 @@
   </head>
   <body>
     <h1 class="title">Bowling Calculator</h1>
-    <div class="container">
+    <div class="container inputContainer">
       <div class="inputSection row">
         <input class="scoreInput col-9" type="text" name="scores" value="Enter Scores">
         <button class="scoreSubmit col-2" type="button" name="button">Submit</button>
       </div>
       <h3 class="score">Score: 0</h3>
+    </div>
+    <div class="instructionContainer container">
+      <p class="instruction">Enter 10 frames of bowling scores, seperated by dashes to calculate the total score.</p>
+      <p class="instruction">e.g. If the first three frames are "45-34-72", they would equal 25.</p>
+      <p class="instruction">If there is a strike make just enter an "X" and a "/" if there is a spare.</p>
+      <p class="instruction">Make sure you enter all ten frames, plus one more if there is a strike or spare in the tenth frame</p>
     </div>
   </body>
   <script

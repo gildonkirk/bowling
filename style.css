@@ -4,7 +4,15 @@
 body {
   background-image: url('./assets/wood_pattern.png');
 }
-.container {
+
+.instructionContainer {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14pt;
+}
+
+.inputContainer {
+  margin-bottom: 26px;
   padding: 75px 0 60px 0;
   background-color: rgba(255, 255, 255, .9);
   border-radius: 60px;
@@ -19,6 +27,7 @@ body {
   color: #1995E8;
 }
 .scoreInput {
+  margin-top: 10px;
   font-family: 'Montserrat', sans-serif;
   font-size: 15pt;
   text-align: center;
@@ -38,6 +47,7 @@ body {
   color: #A319E8;
 }
 .scoreSubmit {
+  margin-top: 10px;
   border-radius: 30px;
   background-color: #FF2777;
   color: #ffffff;
